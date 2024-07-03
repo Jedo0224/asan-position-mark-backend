@@ -1,0 +1,50 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+#    url: jdbc:mysql://host.docker.internal:3306/assan?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+#    username: root
+#    password: mhealth02
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+      url: jdbc:mysql://localhost:3306/assan?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+      username: root
+      password: 25419789
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  batch:
+    job:
+      enabled: true
+
+  servlet:
+    multipart:
+      maxFileSize: 100MB # ?? ??? ?? ??
+      maxRequestSize: 100MB
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+      hibernate:
+        default_batch_fetch_size: 100
+
+#    data:
+#      redis:
+#        port: 6379
+#        host: host.docker.internal
+#      mongodb:
+#        uri: mongodb://host.docker.internal:27017/assan
+
+  data:
+    redis:
+      port: 6379
+      host: localhost
+    mongodb:
+      uri: mongodb://admin:25419789@localhost:27018/assan?authSource=admin
+
+
+#  main:
+#    allow-circular-references: true
